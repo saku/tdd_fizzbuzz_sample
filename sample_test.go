@@ -25,4 +25,5 @@ func TestFizzbuzz(t *testing.T) {
 	assert.Equal(t, "2", Fizzbuzz(2), "2")
 	assert.Equal(t, "fizz", Fizzbuzz(3), "3")
 	assert.Equal(t, "buzz", Fizzbuzz(5), "5")
+	assert.Equal(t, "fizzbuzz", Fizzbuzz(15), "15")
 }
