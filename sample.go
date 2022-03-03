@@ -7,6 +7,9 @@ func Say(greeting string) string {
 }
 
 func Fizzbuzz(v int) string {
+	if isPrime(v) {
+		return "prime"
+	}
 	if v%15 == 0 {
 		return "fizzbuzz"
 	}
@@ -17,4 +20,16 @@ func Fizzbuzz(v int) string {
 		return "fizz"
 	}
 	return fmt.Sprint(v)
+}
+
+func isPrime(v int) bool {
+	if v < 2 {
+		return false
+	}
+	for i := 2; i < v; i++ {
+		if v%i == 0 {
+			return false
+		}
+	}
+	return true
 }
