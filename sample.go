@@ -7,6 +7,9 @@ func Say(greeting string) string {
 }
 
 func Fizzbuzz(v int) string {
+	if v%15 == 0 {
+		return "fizzbuzz"
+	}
 	if v%5 == 0 {
 		return "buzz"
 	}
