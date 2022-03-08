@@ -23,6 +23,7 @@ func (s *testFactory) TestFactoryCreate() {
 
 	type testCaseOut struct {
 		result *domain.FizzBuzz
+		err    error
 	}
 
 	cases := []struct {
@@ -54,7 +55,10 @@ func (s *testFactory) TestFactoryCreate() {
 		s.T().Run(c.name, func(t *testing.T) {
 			factory := domain.NewFizzBuzzFactory()
 
-			assert.Equal(t, c.expected.result, factory.Create(c.in.num))
+			fizzbuzz, err := factory.Create(c.in.num)
+
+			assert.Equal(t, c.expected.result, fizzbuzz)
+			assert.Equal(t, c.expected.err, err)
 		})
 	}
 }
