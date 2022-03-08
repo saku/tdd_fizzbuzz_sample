@@ -11,14 +11,26 @@ func NewFizzBuzz(num uint) *FizzBuzz {
 }
 
 func (f *FizzBuzz) Fizzbuzz() string {
-	if f.num%15 == 0 {
+	if f.isFizzBuzz() {
 		return "fizzbuzz"
 	}
-	if f.num%5 == 0 {
+	if f.isBuzz() {
 		return "buzz"
 	}
-	if f.num%3 == 0 {
+	if f.isFizz() {
 		return "fizz"
 	}
 	return fmt.Sprint(f.num)
+}
+
+func (f *FizzBuzz) isFizzBuzz() bool {
+	return f.num%15 == 0
+}
+
+func (f *FizzBuzz) isFizz() bool {
+	return f.num%3 == 0
+}
+
+func (f *FizzBuzz) isBuzz() bool {
+	return f.num%5 == 0
 }
