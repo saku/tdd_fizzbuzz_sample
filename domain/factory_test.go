@@ -1,6 +1,7 @@
 package domain_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -32,7 +33,16 @@ func (s *testFactory) TestFactoryCreate() {
 		expected testCaseOut
 	}{
 		{
-			name: "normal val",
+			name: "invalid low number",
+			in: testCaseIn{
+				num: 101,
+			},
+			expected: testCaseOut{
+				err: fmt.Errorf("invalid number"),
+			},
+		},
+		{
+			name: "normal lowest val",
 			in: testCaseIn{
 				num: 1,
 			},
@@ -41,12 +51,21 @@ func (s *testFactory) TestFactoryCreate() {
 			},
 		},
 		{
-			name: "normal val",
+			name: "normal highest val",
 			in: testCaseIn{
 				num: 100,
 			},
 			expected: testCaseOut{
 				result: domain.NewFizzBuzz(100),
+			},
+		},
+		{
+			name: "invalid high number",
+			in: testCaseIn{
+				num: 101,
+			},
+			expected: testCaseOut{
+				err: fmt.Errorf("invalid number"),
 			},
 		},
 	}
