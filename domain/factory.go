@@ -7,5 +7,5 @@ func NewFizzBuzzFactory() *FizzBuzzFactory {
 }
 
 func (factory FizzBuzzFactory) Create(num uint) *FizzBuzz {
-	return NewFizzBuzz(1)
+	return NewFizzBuzz(num)
 }
