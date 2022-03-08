@@ -39,6 +39,15 @@ func (s *testFactory) TestFactoryCreate() {
 				result: domain.NewFizzBuzz(1),
 			},
 		},
+		{
+			name: "normal val",
+			in: testCaseIn{
+				num: 100,
+			},
+			expected: testCaseOut{
+				result: domain.NewFizzBuzz(100),
+			},
+		},
 	}
 
 	for _, c := range cases {
